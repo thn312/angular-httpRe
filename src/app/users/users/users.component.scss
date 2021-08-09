@@ -1,0 +1,121 @@
+.header {
+  width: 100vw;
+  height: 50px;
+  background-color: #1d1f1ff3;
+  position: fixed;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  color: #e9e8e8;
+  padding-left: 15px;
+}
+
+.content {
+  width: 97vw;
+  overflow-x: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  padding-top: 55px;
+  padding-left: 1vw;
+
+  .list-user {
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.item-card {
+  width: 85%;
+  cursor: pointer;
+  position: relative;
+  font-size: 14px;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  line-height: 20px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 12px 0 rgba(0, 0, 0, 0.19);
+  &.active {
+    border: 1px solid #275aa1;
+  }
+  img {
+    width: 225px;
+    height: 225px;
+    object-fit: cover;
+  }
+  .btn-remove {
+    position: absolute;
+    opacity: 0.6;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    &:hover {
+      opacity: 1;
+    }
+    img {
+      width: 30px;
+      height: 30px;
+      object-fit: unset;
+    }
+  }
+  .name {
+    line-height: 30px;
+    font-size: 24px;
+  }
+}
+.container-button {
+  width: 20%;
+  height: 50px;
+  position: fixed;
+  right: 9%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  button {
+    color: #ffffff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #1654aa;
+    opacity: 0.9;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+.form {
+  position: fixed;
+  right: 1%;
+  margin-top: 65px;
+  padding: 2%;
+  width: 33%;
+  height: fit-content;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 12px 0 rgba(0, 0, 0, 0.19);
+
+  .username {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    .lastname {
+      margin-left: 5%;
+    }
+    .mat-form-field-type-mat-input {
+      width: 95%;
+    }
+  }
+  button {
+    margin-top: 30px;
+  }
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.mat-form-field-type-mat-input {
+  width: 100%;
+}
+p {
+  font-size: 15px;
+  margin-top: 24px;
+  font-weight: 500;
+}

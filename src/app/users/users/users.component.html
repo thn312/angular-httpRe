@@ -1,0 +1,113 @@
+<div class="container">
+  <div class="header">
+    @copyright: Trương Hoài Nam 😂😂😂
+  </div>
+
+  <div class="content">
+    <div class="list-user">
+      <mat-card
+      class="item-card"
+      *ngFor="let item of users; let i = index"
+
+      (click)="onClickUser(item)"
+      [class.active]="selectedItem === item.id"
+      >
+        <div
+          class="btn-remove"
+          (click)="onRemoveUser(item.id)"
+        >
+          <img src="../../../assets/img/remove.png" alt="">
+        </div>
+        <mat-card-content>
+          <img src={{item.avatar}} alt="">
+          <p class="name">{{item.first_name}} {{item.last_name}}</p>
+          <p class="email">{{item.email}}</p>
+        </mat-card-content>
+
+
+    </mat-card>
+    </div>
+
+
+
+    <div *ngIf="isAdd"  class="form">
+      <h2>Thêm thông tin User</h2>
+      <form class="add-item-form" [formGroup]="addItemForm" (ngSubmit)="onSubmitAdd(addItemForm.value)">
+        <div class="row-control username">
+          <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput placeholder="First Name" formControlName="first_name" />
+          </mat-form-field>
+          <mat-form-field class="lastname" appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Last Name" formControlName="last_name" />
+          </mat-form-field>
+        </div>
+        <div class="row-control">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input
+              type="email"
+              matInput
+              placeholder="Email"
+              formControlName="email"
+            />
+          </mat-form-field>
+        </div>
+        <div class="row-control">
+          <input #imageInput
+               type="file"
+               accept="image/*"
+               formControlName="avatar"
+               (change)="onChangeFile($event)"
+          >
+        </div>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="!addItemForm.valid" >Xác nhận</button>
+      </form>
+    </div>
+
+    <div *ngIf="!isAdd"  class="form">
+      <h2>Sửa thông tin User</h2>
+      <form class="add-item-form" [formGroup]="editItemForm" (ngSubmit)="onSubmitEdit(editItemForm.value)">
+        <div class="row-control username">
+          <mat-form-field appearance="outline">
+            <mat-label for="first_name">First Name</mat-label>
+            <input matInput placeholder="First Name" formControlName="first_name" />
+          </mat-form-field>
+          <mat-form-field class="lastname" appearance="outline">
+            <mat-label for="last_name">Last Name</mat-label>
+            <input matInput placeholder="Last Name" formControlName="last_name" />
+          </mat-form-field>
+        </div>
+        <div class="row-control">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input
+              type="email"
+              matInput
+              placeholder="Email"
+              formControlName="email"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="row-control">
+          <input
+               type="file"
+               accept="image/*"
+               formControlName="avatar"
+               (change)="onChangeFile($event)"
+          >
+        </div>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="!editItemForm.valid" >Xác nhận</button>
+      </form>
+    </div>
+
+    <div class="container-button">
+      <button class="add-user" (click)="onClickAddBtn()">Thêm User</button>
+      <button class="change-user" (click)="onClickChangeBtn()">Thay đổi thông tin</button>
+    </div>
+  </div>
+</div>
